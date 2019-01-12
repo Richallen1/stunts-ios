@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="TCi-ms-g87">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TBSR Final logo PNG (inverted).png" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-mo-MgQ">
+                                <rect key="frame" x="43" y="142.5" width="288" height="382"/>
+                                <color key="backgroundColor" red="0.57037758827209473" green="0.61092895269393921" blue="0.64706563949584961" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EnC-mo-MgQ" secondAttribute="height" multiplier="144:191" id="tra-48-gqm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.57037758829999996" green="0.61092895270000003" blue="0.64706563949999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="TCi-ms-g87" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0X7-OA-gi0"/>
+                            <constraint firstItem="EnC-mo-MgQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5ZV-Q9-Mk3"/>
+                            <constraint firstItem="TCi-ms-g87" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Jy9-xd-qyc"/>
+                            <constraint firstItem="TCi-ms-g87" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="axK-SM-Lmu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EnC-mo-MgQ" secondAttribute="trailing" constant="44" id="g1u-KR-pG7"/>
+                            <constraint firstItem="EnC-mo-MgQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="hdE-h2-7ax"/>
+                            <constraint firstItem="TCi-ms-g87" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rGd-3O-rZB"/>
+                            <constraint firstItem="EnC-mo-MgQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vF7-OL-owL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Loading_BG.png" width="800" height="600"/>
+        <image name="TBSR Final logo PNG (inverted).png" width="1000" height="1246"/>
+    </resources>
+</document>
