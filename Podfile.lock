@@ -1,0 +1,57 @@
+PODS:
+  - Bolts/Tasks (1.9.0)
+  - Crashlytics (3.10.2):
+    - Fabric (~> 1.7.7)
+  - CSVParser (1.0.0)
+  - Fabric (1.7.7)
+  - GKImagePicker (0.0.1)
+  - MARKRangeSlider (1.1.1)
+  - Parse (1.17.1):
+    - Parse/Core (= 1.17.1)
+  - Parse/Core (1.17.1):
+    - Bolts/Tasks (~> 1.9)
+  - Reachability (3.2)
+  - Realm (3.10.0):
+    - Realm/Headers (= 3.10.0)
+  - Realm/Headers (3.10.0)
+  - TTRangeSlider (1.0.6)
+
+DEPENDENCIES:
+  - Crashlytics (~> 3.10)
+  - CSVParser
+  - Fabric
+  - GKImagePicker
+  - MARKRangeSlider
+  - Parse
+  - Reachability
+  - Realm
+  - TTRangeSlider
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bolts
+    - Crashlytics
+    - CSVParser
+    - Fabric
+    - GKImagePicker
+    - MARKRangeSlider
+    - Parse
+    - Reachability
+    - Realm
+    - TTRangeSlider
+
+SPEC CHECKSUMS:
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
+  CSVParser: 7c3a9753a2f9fe7ea42e4db2898f548da566fc29
+  Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
+  GKImagePicker: 38eabf8e048ed7275f9bc3cc3c3f3620c4a4826f
+  MARKRangeSlider: ef7e1fe84d22996f47fd72dcb8de50b9410aac47
+  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  TTRangeSlider: 78188bea83f6471a06f75adbc88da5e990baeafe
+
+PODFILE CHECKSUM: 0c3933894bd56ff3a262650299c7dbcc1331f4bb
+
+COCOAPODS: 1.5.2
