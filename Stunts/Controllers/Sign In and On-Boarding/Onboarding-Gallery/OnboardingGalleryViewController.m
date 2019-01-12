@@ -207,7 +207,7 @@
             NSMutableArray * parseFileArray = [[NSMutableArray alloc]init];
             for (UIImage *img in images)
             {
-                NSData *imageData = UIImagePNGRepresentation(img);
+                NSData *imageData = UIImageJPEGRepresentation(img, 0.7);
                 PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"image - %d", counter] data:imageData];
                 
                 float imageSize = imageData.length;

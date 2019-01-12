@@ -11,7 +11,7 @@
 #import "OnboardingSkillsViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import "WeightPopoverController.h"
-
+#import "MBProgressHUD.h"
 
 @interface AboutMeViewController ()<UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 {
@@ -1128,9 +1128,13 @@
     [dict setObject:[NSNumber numberWithInt:pounds] forKey:@"pounds"];
     return dict;
 }
--(IBAction)Next:(id)sender
+-(IBAction)Next:(UIButton *)sender
 {
-            
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.label.text = @"Saving Details";
+    
+            sender.userInteractionEnabled = NO;
+    
             for (int i = 0; i < memberInfo.count; i++)
             {
                 NSString *columnName = [[cellLabels objectAtIndex:i] stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -1194,12 +1198,16 @@
                 if (succeeded) {
                     // The object has been saved.
                     NSLog(@"Profile Saved Successfully");
+                    [hud hideAnimated:YES];
+                     sender.userInteractionEnabled = NO;
                     [PFUser currentUser][@"Onboarding_About"] = [NSNumber numberWithBool:YES];
                     [[PFUser currentUser] saveInBackground];
                     [self performSegueWithIdentifier:@"skills_segue" sender:self];
                 } else {
                     // There was a problem, check error.description
                     [CrashlyticsKit recordError:error];
+                    [hud hideAnimated:YES];
+                     sender.userInteractionEnabled = NO;
                     NSLog(@"Error: %ld - Description:%@", (long)error.code, error.description);
                 }
             }];

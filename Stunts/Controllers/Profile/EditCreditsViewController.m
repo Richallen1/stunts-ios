@@ -222,6 +222,11 @@
     logo.image = [UIImage imageNamed:@"BSR-Logo50-Alpha"];
     [addCreditView addSubview:logo];
     
+    UIButton *cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(285, 12, 41, 41)];
+    [cancelButton setImage:[UIImage imageNamed:@"closeButton"] forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(cancelCreditView:) forControlEvents:UIControlEventTouchUpInside];
+    [addCreditView addSubview:cancelButton];
+    
     UILabel *headerLabel = [[UILabel alloc]initWithFrame:CGRectMake(19, 72, 226, 43)];
     headerLabel.text = @"Add a Credit";
     headerLabel.font = [UIFont fontWithName:@"SFProText-Bold" size:36];
@@ -335,7 +340,26 @@
     
     
 }
-
+-(void)cancelCreditView:(id)sender
+{
+    [UIView animateWithDuration:0.4f animations:^{
+        
+        [backgroundDarkView setAlpha:0.0f];
+        addCreditView.frame = CGRectMake(20, self.view.frame.size.height, self.view.frame.size.width-40, 570);
+        addCreditView = nil;
+        backgroundDarkView = nil;
+        
+    } completion:^(BOOL finished) {
+        NSLog(@"Transition Complete");
+        
+        if (noCreditView)
+        {
+            [noCreditView removeFromSuperview];
+            noCreditView = nil;
+        }
+        
+    }];
+}
 -(void)addContractImage
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

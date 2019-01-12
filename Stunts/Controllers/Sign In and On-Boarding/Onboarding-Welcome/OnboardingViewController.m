@@ -196,7 +196,7 @@ profileImage = PFFile imageFile;
     user[@"Onboarding_Basic"] = [NSNumber numberWithBool:YES];
     user[@"Name"] = nameField.text;
     user[@"phone"] = phoneField.text;
-    NSData *imageData = UIImagePNGRepresentation(profileImage);
+    NSData *imageData = UIImageJPEGRepresentation(profileImage, 0.7);
     PFFile *imageFile;
     if(imageData){
         imageFile = [PFFile fileWithName:@"profile-image" data:imageData];
