@@ -66,7 +66,7 @@
     if (![PFUser currentUser][@"Admin"] == YES)
     {
         NSMutableArray *newTabs = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
-        [newTabs removeObjectAtIndex: 3];
+        [newTabs removeObjectAtIndex: 4];
         [self.tabBarController setViewControllers:newTabs];
     }
     else
@@ -172,7 +172,7 @@
     [popoverView addSubview:headerLabel1];
     
     UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(26, 136, 263, 200)];
-    infoLabel.text = @"Welcome the the British Stunt Register app. We are pleased to be opening this up to the members for a public beta.\n\nThis is the public version and so if anything doesn’t seem quite right or you expreince any issues please email: ";
+    infoLabel.text = @"Welcome the the British Stunt Register app. We are pleased to be opening this up to the members.\n\nThis is the public version and so if anything doesn’t seem quite right or you experience any issues please email: ";
     infoLabel.numberOfLines = 0;
     [infoLabel setTextColor:UIColorFromRGB(0X000000)];
     infoLabel.font = [UIFont fontWithName:@"SFProText" size:14];

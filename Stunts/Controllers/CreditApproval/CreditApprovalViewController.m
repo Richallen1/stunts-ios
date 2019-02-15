@@ -82,49 +82,14 @@
             pending = [[NSCountedSet alloc] init];
             for (PFObject *object in objects) {
                 NSLog(@"%@", object);
-                PFUser *user = [object[@"User"] fetch];
+                //PFUser *user = [object[@"User"] fetch];
+                PFObject *member = [object[@"Member"] fetch];
                 
-                [userObjs addObject:user];
-                [pending addObject:user[@"Name"]];
+                [userObjs addObject:member];
+                [pending addObject:member[@"Name"]];
                 
             }
             [self SetTableDataFor:pending];
-            [hud hideAnimated:YES];
-            
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-}
-
--(void)GetUsersWithCreditsApproved
-{
-    [userObjs removeAllObjects];
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.label.text = @"Getting Credits....";
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Credits"];
-    [query orderByAscending:@"User"];
-    [query whereKey:@"State" equalTo:@"Approved"];
-    [query includeKey:@"Member"];
-    query.limit = 100;
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu Credits.", (unsigned long)objects.count);
-            credits = [NSMutableArray arrayWithArray:objects];
-            approved = [[NSCountedSet alloc] init];
-            for (PFObject *object in objects) {
-                PFObject *user = object[@"Member"];
-                if(user){
-                    [userObjs addObject:user];
-                    [approved addObject:user[@"Name"]];
-                }
-                
-            }
-            [self SetTableDataFor:approved];
             [hud hideAnimated:YES];
             
             
@@ -153,10 +118,12 @@
             rejected = [[NSCountedSet alloc] init];
             for (PFObject *object in objects) {
                 NSLog(@"%@", object);
-                PFUser *user = [object[@"User"] fetch];
+                //PFUser *user = [object[@"User"] fetch];
                 
-                [userObjs addObject:user];
-                [rejected addObject:user[@"Name"]];
+                PFObject *member = [object[@"Member"] fetch];
+                
+                [userObjs addObject:member];
+                [rejected addObject:member[@"Name"]];
                 
             }
             [self SetTableDataFor:rejected];
@@ -245,18 +212,6 @@
         }
             break;
         case 1:
-        {
-            if (approved.count != 0)
-            {
-                [self SetTableDataFor:approved];
-            }
-            else
-            {
-                [self GetUsersWithCreditsApproved];
-            }
-        }
-            break;
-        case 2:
         {
             if (rejected.count != 0)
             {

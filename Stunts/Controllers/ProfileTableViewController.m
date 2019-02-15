@@ -110,6 +110,9 @@
 //    RLMResults<Profile *> * results = [Profile objectsWhere:@"uid = %@",selectedMember];
 //    NSLog(@"RESLUT: %@", results);
     
+    NSLog(@"Image: %@", profileImage);
+    NSLog(@"Member: %@", selectedMember);
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -1064,7 +1067,7 @@
                     [skills addObject:tmp];
                 }
             }
-            NSLog(@"SKILL:%@", skills[skills.count-1]);
+            //NSLog(@"SKILL:%@", skills[skills.count-1]);
             [self.tableView reloadData];
             [hud hideAnimated:YES];
             

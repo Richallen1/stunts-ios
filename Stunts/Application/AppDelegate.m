@@ -33,12 +33,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //[Parse enableLocalDatastore];
+    
+    
     isOnline = NO;
     
     //Fabric Init Methods
     [Fabric with:@[[Crashlytics class]]];
-
-
+    
+    
     // Allocate a reachability object
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     
@@ -49,13 +51,13 @@
             if (reach.isReachableViaWiFi) {
                 NSLog(@"Connected Via Wifi");
                 isOnline = YES;
-
+                
             }
             if (reach.isReachableViaWWAN)
             {
                 NSLog(@"Connected Via Cellular");
                 isOnline = YES;
-
+                
             }
             
         });
@@ -65,7 +67,7 @@
     {
         NSLog(@"UNREACHABLE!");
         isOnline = NO;
-
+        
     };
     
     // Start the notifier, which will cause the reachability object to retain itself!
@@ -74,10 +76,10 @@
     [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         configuration.applicationId = @"1d373ed26707e4d3d6c493d0dce9c359410d4e96";
         configuration.clientKey = @"ab0496b038d68cb83a1e56ce36ec9c4613339da7";
-        configuration.server = @"http://18.130.111.148:80/parse";
+        configuration.server = @"http://35.178.77.133:80/parse";
         
     }]];
- 
+    
     lists = [[NSMutableArray alloc]init];
     
     [RLMRealm initialize];
@@ -115,7 +117,7 @@
                     user.Onboarding_Credit = ((NSNumber<RLMInt> *)[tmp objectForKey:@"Onboarding_Credit"]);
                     user.Onboarding_Skills = ((NSNumber<RLMInt> *)[tmp objectForKey:@"Onboarding_Skills"]);
                     
-                    [realm addObject:user];
+                    [realm addOrUpdateObject:user];
                 }
             }
             
@@ -132,7 +134,7 @@
                     credit.createdAt = [formatter dateFromString:[tmp objectForKey:@"createdAt"]];
                     credit.updatedAt = [formatter dateFromString:[tmp objectForKey:@"updatedAt"]];
                     
-                    [realm addObject:credit];
+                    [realm addOrUpdateObject:credit];
                 }
             }
             
@@ -152,7 +154,7 @@
                     credits.MemberId = ((NSString * )[[tmp objectForKey:@"Member"] objectForKey:@"objectId"]);
                     
                     NSLog(@"%@", credits.MemberId);
-                    [realm addObject:credits];
+                    [realm addOrUpdateObject:credits];
                     
                 }
             }
@@ -170,7 +172,7 @@
                     holiday.updatedAt = [formatter dateFromString:[tmp objectForKey:@"updatedAt"]];
                     holiday.date = [formatter dateFromString:[tmp objectForKey:@"date"]];
                     
-                    [realm addObject:holiday];
+                    [realm addOrUpdateObject:holiday];
                 }
             }
             
@@ -184,7 +186,7 @@
                     list.createdAt = [formatter dateFromString:[tmp objectForKey:@"createdAt"]];
                     list.updatedAt = [formatter dateFromString:[tmp objectForKey:@"updatedAt"]];
                     
-                    [realm addObject:list];
+                    [realm addOrUpdateObject:list];
                 }
             }
             
@@ -208,7 +210,7 @@
                     members.PendingCredits = ((NSNumber<RLMInt> *)[tmp objectForKey:@"PendingCredits"]);
                     members.admin = ((NSString * )[tmp objectForKey:@"Admin"]);
                     
-                    [realm addObject:members];
+                    [realm addOrUpdateObject:members];
                 }
             }
             
@@ -222,7 +224,7 @@
                     profile.FacialHair = ((NSString * )[tmp objectForKey:@"FacialHair"]);
                     profile.HairLengthColour = ((NSString * )[tmp objectForKey:@"HairLengthColour"]);
                     profile.EyeColour = ((NSString * )[tmp objectForKey:@"EyeColour"]);
-                    if([profile.uid isKindOfClass:[NSDictionary class]]){
+                    if([[tmp objectForKey:@"uid"] isKindOfClass:[NSDictionary class]]){
                         profile.uid = ((NSString * )[[tmp objectForKey:@"uid"] objectForKey:@"objectId"]);
                     }
                     else{
@@ -242,9 +244,9 @@
                     profile.Collar = ((NSNumber<RLMDouble> *)[tmp objectForKey:@"Collar"]);
                     profile.createdAt = [formatter dateFromString:[tmp objectForKey:@"createdAt"]];
                     profile.updatedAt = [formatter dateFromString:[tmp objectForKey:@"updatedAt"]];
- 
                     
-                    [realm addObject:profile];
+                    
+                    [realm addOrUpdateObject:profile];
                 }
             }
             
@@ -257,19 +259,19 @@
                     userPhoto.createdAt = [formatter dateFromString:[tmp objectForKey:@"createdAt"]];
                     userPhoto.updatedAt = [formatter dateFromString:[tmp objectForKey:@"updatedAt"]];
                     
-                    [realm addObject:userPhoto];
+                    [realm addOrUpdateObject:userPhoto];
                 }
             }
         }];
         
         [userDefaults setObject:version forKey:@"VersionNumber"];
-         
+        
     }
     
-//    [TestFairy begin:@"688d39690b073bb9572a44893094173774949914"];
+    //    [TestFairy begin:@"688d39690b073bb9572a44893094173774949914"];
     
-//    NSLog(@"%@", [NSBundle mainBundle]);
-//    
+    //    NSLog(@"%@", [NSBundle mainBundle]);
+    //
     
     return YES;
 }
@@ -300,8 +302,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-
+    
 }
 
 
 @end
+

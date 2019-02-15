@@ -45,10 +45,13 @@
                                         block:^(PFUser *user, NSError *error) {
                                             if (user) {
                                                 NSLog(@"Login Successful");
-                                                if (user[@"termsAccepted"] == NO)
+                                             
+                                                if (user[@"termsAccepted"] == NO && [user[@"AccountType"] isEqualToString: @"Member"])
                                                 {
                                                     [self performSegueWithIdentifier:@"check_terms_segue" sender:self];
                                                 }
+
+                                                
                                                 else
                                                 {
                                                     [self performSegueWithIdentifier:@"logged_in_segue" sender:self];
@@ -68,7 +71,22 @@
     }
 
 }
-
+-(void)AddMemberToUser:(PFUser *)user
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Members"];
+    [query whereKey:@"uid" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            user[@"Member"] = objects[0];
+            [user save];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     if (![emailField.text isEqualToString:@""]) {
@@ -182,6 +200,33 @@
                                             NSLog(@"Login Successful");
                                             [hud hideAnimated:YES];
                                             
+                                            if ((!user[@"Member"]) && (![user[@"AccountType"] isEqualToString:@"Producer"]))
+                                            {
+                                                
+                                                PFQuery *query = [PFQuery queryWithClassName:@"Members"];
+                                                [query whereKey:@"Email" equalTo:user[@"email"]];
+                                                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                                                    if (!error) {
+                                                        if (objects.count > 0)
+                                                        {
+                                                            user[@"AccountType"] = @"Member";
+                                                            user[@"Member"] = objects[0];
+                                                            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                                if (succeeded) {
+                                                                    NSLog(@"Account Type Updated");
+                                                                    NSLog(@"Member Updated");
+                                                                } else {
+                                                                    // There was a problem, check error.description
+                                                                    NSLog(@"Error %@", error.description);
+                                                                }
+                                                            }];
+                                                        }
+                                                    } else {
+                                                        // Log details of the failure
+                                                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                                                    }
+                                                }];
+                                            }
                                             if (rememberMe == YES)
                                             {
                                                 [defaults setObject:emailField.text forKey:@"email"];
@@ -238,3 +283,32 @@
 
 
 @end
+
+
+//                                                else if (!user[@"AccountType"])
+//                                                {
+//                                                    NSLog(@"%@", user[@"Member"]);
+//                                                    PFQuery *query = [PFQuery queryWithClassName:@"Members"];
+//                                                    [query whereKey:@"Email" equalTo:user[@"email"]];
+//                                                    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//                                                        if (!error) {
+//                                                            if (objects.count > 0)
+//                                                            {
+//                                                                user[@"AccountType"] = @"Member";
+//                                                                user[@"Member"] = objects[0];
+//                                                                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                                                                    if (succeeded) {
+//                                                                        NSLog(@"Account Type Updated");
+//                                                                        NSLog(@"Member Updated");
+//                                                                    } else {
+//                                                                        // There was a problem, check error.description
+//                                                                        NSLog(@"Error %@", error.description);
+//                                                                    }
+//                                                                }];
+//                                                            }
+//                                                        } else {
+//                                                            // Log details of the failure
+//                                                            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//                                                        }
+//                                                    }];
+//                                                }

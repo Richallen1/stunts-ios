@@ -68,7 +68,10 @@
     [addInfoView addSubview:closeButton];
     
     /* Add Tittle */
-    titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, addInfoView.frame.size.width, 50)];
+    titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, addInfoView.frame.size.width-50, 50)];
+    titleLabel.numberOfLines = 1;
+    titleLabel.minimumFontSize = 8;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
     titleLabel.font = [UIFont fontWithName:@"SFProText-Light" size:24];
     titleLabel.numberOfLines = 0;
     [addInfoView addSubview:titleLabel];

@@ -45,7 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    cellLabels = [[NSArray alloc]initWithObjects:@"Eye Colour", @"Hair Colour", @"Facial Hair", @"Chest", @"Collar", @"Hat", @"Height", @"Hips", @"Inside Arm", @"Inside Leg", @"Shoe Size UK", @"Waist", @"Weight", nil];
+    cellLabels = [[NSArray alloc]initWithObjects:@"Eye Colour", @"Hair Colour", @"Facial Hair", @"Chest / Bust", @"Collar", @"Hat", @"Height", @"Hips", @"Inside Arm", @"Inside Leg", @"Shoe Size UK", @"Waist", @"Weight", nil];
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.label.text = @"Loading Profile..";
@@ -524,6 +524,7 @@
             
             //Facial Hair Picker
             [dataForPicker removeAllObjects];
+            [dataForPicker addObject:@"None"];
             [dataForPicker addObject:@"Beard"];
             [dataForPicker addObject:@"Clean Shaven"];
             [dataForPicker addObject:@"Full Set"];
@@ -583,7 +584,7 @@
             
             [addInfoView addSubview:unitofMeasure];
             
-            titleLabel.text = @"Select Your Chest Size";
+            titleLabel.text = @"Select Your Chest / Bust Size";
             titleLabel.textAlignment = NSTextAlignmentCenter;
             
         }

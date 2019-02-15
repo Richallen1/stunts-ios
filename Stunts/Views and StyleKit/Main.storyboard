@@ -162,14 +162,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJo-PL-e48">
-                                <rect key="frame" x="16" y="567" width="360" height="125"/>
+                                <rect key="frame" x="16" y="649" width="124" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lJo-PL-e48" secondAttribute="height" multiplier="124:43" id="YUq-Bi-aQn"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="Sign_In_Btn"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-1a-z3Z">
-                                <rect key="frame" x="394" y="649" width="0.0" height="43"/>
+                                <rect key="frame" x="158" y="649" width="59" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="OR2-qp-sVR"/>
                                 </constraints>
@@ -503,8 +503,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="Pending"/>
-                                    <segment title="Approved"/>
-                                    <segment title="Declined"/>
+                                    <segment title="Rejected"/>
                                 </segments>
                                 <color key="tintColor" red="0.94117647058823528" green="0.54117647058823526" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
@@ -956,8 +955,8 @@
                         <outlet property="memberCount" destination="mEx-G0-hFz" id="s9x-Kk-DuE"/>
                         <outlet property="selectButton" destination="o46-gj-hQz" id="P7U-Zw-3XC"/>
                         <outlet property="sexLabel" destination="hAO-Rt-zlK" id="FiV-5M-BOX"/>
-                        <segue destination="zAy-XA-rtc" kind="show" identifier="profile-selected-segue" id="1be-72-xFq"/>
                         <segue destination="aeF-9g-jJt" kind="show" identifier="show-filter-options" id="thd-p4-kuZ"/>
+                        <segue destination="PFQ-KK-Ntw" kind="show" identifier="profile-selected-segue" id="Hoe-im-20F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YB-zz-I96" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -977,8 +976,8 @@
                         <segue destination="9d0-PA-b0n" kind="relationship" relationship="viewControllers" id="B3h-vx-tiR"/>
                         <segue destination="up9-it-up8" kind="relationship" relationship="viewControllers" id="AAC-3t-9gh"/>
                         <segue destination="sfW-u6-XYM" kind="relationship" relationship="viewControllers" id="yeO-Fz-feY"/>
-                        <segue destination="L1D-5M-tJJ" kind="relationship" relationship="viewControllers" id="bxg-vw-J47"/>
                         <segue destination="DaX-xa-nlD" kind="relationship" relationship="viewControllers" id="cg4-Q4-Gq1"/>
+                        <segue destination="L1D-5M-tJJ" kind="relationship" relationship="viewControllers" id="bxg-vw-J47"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NA3-ge-NFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1447,21 +1446,21 @@ you have created</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BSR_Logo_LG" translatesAutoresizingMaskIntoConstraints="NO" id="9RK-dT-nNP">
-                                <rect key="frame" x="112.33333333333331" y="20" width="150" height="150"/>
+                                <rect key="frame" x="132" y="20" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="KQV-uc-ub6"/>
                                     <constraint firstAttribute="height" constant="150" id="V1w-Mt-Gxl"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="spa-fk-fke">
-                                <rect key="frame" x="13" y="197" width="349" height="50"/>
+                                <rect key="frame" x="13" y="197" width="388" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="349" id="ils-o6-VEW"/>
                                     <constraint firstAttribute="height" constant="50" id="ohY-De-b8L"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="oNQ-cE-hlL">
-                                <rect key="frame" x="13" y="271" width="349" height="50"/>
+                                <rect key="frame" x="13" y="271" width="388" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="IEA-Gi-eOi"/>
                                     <constraint firstAttribute="width" constant="349" id="T3H-uu-8pq"/>
@@ -1469,7 +1468,7 @@ you have created</string>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="ye8-tU-c2m">
-                                <rect key="frame" x="10" y="355" width="349" height="50"/>
+                                <rect key="frame" x="10" y="355" width="388" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="6Cr-73-brl"/>
                                     <constraint firstAttribute="width" constant="349" id="GLS-Qh-zbq"/>
@@ -1478,7 +1477,7 @@ you have created</string>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cfM-Ty-sKf">
-                                <rect key="frame" x="25" y="197" width="325" height="50"/>
+                                <rect key="frame" x="25" y="197" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uWm-LY-zJe"/>
                                 </constraints>
@@ -1487,7 +1486,7 @@ you have created</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adI-xg-tEH">
-                                <rect key="frame" x="13" y="532" width="349" height="55"/>
+                                <rect key="frame" x="32.666666666666657" y="532" width="349" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="349" id="GEZ-2V-adE"/>
                                     <constraint firstAttribute="height" constant="55" id="X0w-A1-aFi"/>
@@ -1498,7 +1497,7 @@ you have created</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-dv-Omo">
-                                <rect key="frame" x="25" y="271" width="325" height="50"/>
+                                <rect key="frame" x="25" y="271" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8vB-kb-LGI"/>
                                 </constraints>
@@ -1507,7 +1506,7 @@ you have created</string>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Enter a Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JIm-LU-93k">
-                                <rect key="frame" x="25" y="355" width="325" height="50"/>
+                                <rect key="frame" x="25" y="355" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dmh-44-1jq"/>
                                 </constraints>
@@ -1516,7 +1515,7 @@ you have created</string>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking Sign up you agree to our" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dne-ba-OQ5">
-                                <rect key="frame" x="50.333333333333314" y="665" width="274" height="21"/>
+                                <rect key="frame" x="70" y="665" width="274" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="268" id="023-vK-hYQ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="268" id="RIL-vR-wvS"/>
@@ -1528,7 +1527,7 @@ you have created</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPd-ts-fgS">
-                                <rect key="frame" x="129.33333333333334" y="694" width="116" height="30"/>
+                                <rect key="frame" x="149" y="694" width="116" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="33k-ou-2fD"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="N5k-uT-ADy"/>
@@ -2725,7 +2724,7 @@ present on your profile page.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPZ-kU-tHO">
-                                <rect key="frame" x="-236.66666666666666" y="68" width="773.33333333333337" height="132"/>
+                                <rect key="frame" x="20.999999999999972" y="68" width="258" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YPZ-kU-tHO" secondAttribute="height" multiplier="41:7" id="cyX-gq-Geu"/>
                                 </constraints>
@@ -2735,7 +2734,7 @@ present on your profile page.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cf-rp-A4e">
-                                <rect key="frame" x="35" y="384" width="230" height="44"/>
+                                <rect key="frame" x="35" y="296" width="230" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="XUg-hg-hMh"/>
                                     <constraint firstAttribute="width" secondItem="3cf-rp-A4e" secondAttribute="height" multiplier="115:22" id="fdH-ba-xTi"/>
@@ -2747,7 +2746,7 @@ present on your profile page.</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vlF-in-QQl">
-                                <rect key="frame" x="16" y="208" width="268" height="168"/>
+                                <rect key="frame" x="16" y="120" width="268" height="168"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="168" id="AAG-IB-AKh"/>
@@ -2808,12 +2807,20 @@ present on your profile page.</string>
             </objects>
             <point key="canvasLocation" x="9647" y="-549"/>
         </scene>
+        <!--Members Page View Controller-->
+        <scene sceneID="yxs-Bq-Jwo">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PFQ-KK-Ntw" customClass="MembersPageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3RD-AT-kgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7619" y="-67"/>
+        </scene>
         <!--Profile Table View Controller-->
         <scene sceneID="qqB-tg-bA1">
             <objects>
-                <tableViewController definesPresentationContext="YES" id="zAy-XA-rtc" customClass="ProfileTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileTableViewController" definesPresentationContext="YES" id="zAy-XA-rtc" customClass="ProfileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nXr-D4-9cy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -3095,11 +3102,11 @@ present on your profile page.</string>
             <objects>
                 <viewController id="9cn-Xo-odD" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uJG-dh-z6D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0lK-aJ-GQI">
-                                <rect key="frame" x="37" y="198" width="340" height="340"/>
+                                <rect key="frame" x="37" y="173.66666666666663" width="340" height="340"/>
                                 <color key="backgroundColor" red="0.75028413274848338" green="0.94663820433290657" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="340" id="3mM-kB-L4N"/>
@@ -3565,14 +3572,14 @@ present on your profile page.</string>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BSR_Logo249" translatesAutoresizingMaskIntoConstraints="NO" id="vn9-Oc-cZM">
-                                <rect key="frame" x="187" y="20" width="40" height="40"/>
+                                <rect key="frame" x="167.33333333333334" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="7Bz-5M-GF4"/>
                                     <constraint firstAttribute="height" constant="40" id="zlH-si-eLa"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP5-Dl-FOP">
-                                <rect key="frame" x="346" y="30" width="51" height="30"/>
+                                <rect key="frame" x="307" y="30" width="51" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="b1g-LQ-RB9"/>
                                     <constraint firstAttribute="height" constant="30" id="qZG-mI-35p"/>
@@ -3594,21 +3601,21 @@ present on your profile page.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhA-Tt-2fS">
-                                <rect key="frame" x="0.0" y="136" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.84563372461928932" green="0.84563372461928932" blue="0.84563372461928932" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="T1v-pI-i0i"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ums-MZ-ze3">
-                                <rect key="frame" x="0.0" y="260" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="260" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.84563372459999997" green="0.84563372459999997" blue="0.84563372459999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Qwq-Zk-paE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odr-Nj-EoD">
-                                <rect key="frame" x="0.0" y="320" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="320" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.84563372459999997" green="0.84563372459999997" blue="0.84563372459999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="lO4-kz-mCL"/>
@@ -3616,7 +3623,7 @@ present on your profile page.</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6X-5t-MwP">
-                                <rect key="frame" x="0.0" y="380" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="380" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.84563372459999997" green="0.84563372459999997" blue="0.84563372459999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="7mK-ij-ER4"/>
@@ -3648,7 +3655,7 @@ present on your profile page.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-hf-vIr">
-                                <rect key="frame" x="182" y="160" width="50" height="50"/>
+                                <rect key="frame" x="162.33333333333334" y="160" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3W7-UF-PsR"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="D4c-RN-D0D"/>
@@ -3661,7 +3668,7 @@ present on your profile page.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intermediate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al4-0T-nWL">
-                                <rect key="frame" x="159.66666666666666" y="218" width="95" height="20"/>
+                                <rect key="frame" x="140" y="218" width="95" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="DN7-6V-Zem"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="ZEE-cP-Ub8"/>
@@ -3673,7 +3680,7 @@ present on your profile page.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tl3-Cw-zW0">
-                                <rect key="frame" x="324" y="159" width="50" height="50"/>
+                                <rect key="frame" x="285" y="159" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="3se-Mq-uvj"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="JMC-Uc-VGY"/>
@@ -3686,7 +3693,7 @@ present on your profile page.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Member" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0af-ad-CvF">
-                                <rect key="frame" x="305" y="218" width="93" height="20"/>
+                                <rect key="frame" x="266" y="218" width="93" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="93" id="8E9-6a-nNO"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="93" id="Zav-EK-JT3"/>
@@ -3698,7 +3705,7 @@ present on your profile page.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ty6-Ym-oh4">
-                                <rect key="frame" x="16" y="260" width="382" height="61"/>
+                                <rect key="frame" x="16" y="260" width="343" height="61"/>
                                 <fontDescription key="fontDescription" name="SFProText-Light" family="SF Pro Text" pointSize="17"/>
                                 <state key="normal" title="Physical Description">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3708,7 +3715,7 @@ present on your profile page.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5r6-YN-0DN">
-                                <rect key="frame" x="15" y="320" width="392" height="61"/>
+                                <rect key="frame" x="15" y="320" width="353" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="KIG-sS-AHn"/>
                                 </constraints>
@@ -3721,7 +3728,7 @@ present on your profile page.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUS-B1-L9F">
-                                <rect key="frame" x="15" y="617" width="382" height="50"/>
+                                <rect key="frame" x="15" y="617" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kYg-F8-kSo"/>
                                     <constraint firstAttribute="width" constant="343" id="ua5-bu-hr3"/>
@@ -5997,56 +6004,69 @@ APRIL 2018 ONWARDS</string>
             </objects>
             <point key="canvasLocation" x="4157" y="-1129"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="v3S-Hb-Irs">
+            <objects>
+                <viewController id="Mp6-Tg-s08" sceneMemberID="viewController">
+                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1fc9dfdf043dd4bedae1be15a86f782b_profile-image.png" id="HQe-y6-Brs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6p-51-dFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2506" y="-1271"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="AllPerformersButton" width="1269" height="846"/>
-        <image name="Approve_Button" width="534" height="171"/>
-        <image name="BSR-Logo50" width="100" height="100"/>
-        <image name="BSR_Logo249" width="748" height="748"/>
+        <image name="1fc9dfdf043dd4bedae1be15a86f782b_profile-image.png" width="213" height="222"/>
+        <image name="AllPerformersButton" width="423" height="282"/>
+        <image name="Approve_Button" width="178" height="57"/>
+        <image name="BSR-Logo50" width="33" height="33"/>
+        <image name="BSR_Logo249" width="249" height="249"/>
         <image name="BSR_Logo_LG" width="225" height="225"/>
-        <image name="Decline_Button" width="534" height="165"/>
-        <image name="Done-Button" width="1029" height="150"/>
-        <image name="Done_List_242" width="720" height="150"/>
-        <image name="Email" width="256" height="256"/>
-        <image name="Home25" width="100" height="100"/>
+        <image name="Decline_Button" width="178" height="55"/>
+        <image name="Done-Button" width="343" height="50"/>
+        <image name="Done_List_242" width="240" height="50"/>
+        <image name="Email" width="85" height="85"/>
+        <image name="Home25" width="33" height="33"/>
         <image name="Loading_BG.png" width="800" height="600"/>
-        <image name="Next-Button" width="1047" height="156"/>
-        <image name="Phone" width="256" height="256"/>
-        <image name="Red_Un-Checked_Checkbox" width="84" height="84"/>
-        <image name="Rules25" width="100" height="100"/>
-        <image name="Share100" width="300" height="291"/>
-        <image name="Sign_In_Btn" width="372" height="129"/>
-        <image name="Sign_In_Button" width="1047" height="165"/>
-        <image name="Sign_Up_Button" width="1041" height="162"/>
+        <image name="Next-Button" width="349" height="52"/>
+        <image name="Phone" width="85" height="85"/>
+        <image name="Red_Un-Checked_Checkbox" width="28" height="28"/>
+        <image name="Rules25" width="33" height="33"/>
+        <image name="Share100" width="100" height="97"/>
+        <image name="Sign_In_Btn" width="124" height="43"/>
+        <image name="Sign_In_Button" width="349" height="55"/>
+        <image name="Sign_Up_Button" width="347" height="54"/>
         <image name="TBSR Final logo PNG (inverted).png" width="1000" height="1246"/>
-        <image name="TextField" width="1044" height="162"/>
-        <image name="Trash-button50" width="147" height="144"/>
-        <image name="User50" width="256" height="256"/>
+        <image name="TextField" width="348" height="54"/>
+        <image name="Trash-button50" width="49" height="48"/>
+        <image name="User50" width="85" height="85"/>
         <image name="Welcome_img.png" width="1242" height="1233"/>
-        <image name="add-Button50" width="156" height="156"/>
+        <image name="add-Button50" width="52" height="52"/>
         <image name="bsr logo sq.jpg" width="1026" height="959"/>
-        <image name="close" width="88" height="88"/>
-        <image name="create_new_list_btn" width="738" height="132"/>
-        <image name="credit_placeholder" width="1500" height="1500"/>
-        <image name="credits25" width="100" height="100"/>
-        <image name="edit-button50" width="147" height="144"/>
-        <image name="filter-user-selected" width="256" height="256"/>
-        <image name="info25" width="75" height="75"/>
+        <image name="close" width="29" height="29"/>
+        <image name="create_new_list_btn" width="246" height="44"/>
+        <image name="credit_placeholder" width="500" height="500"/>
+        <image name="credits25" width="33" height="33"/>
+        <image name="edit-button50" width="49" height="48"/>
+        <image name="filter-user-selected" width="85" height="85"/>
+        <image name="info25" width="25" height="25"/>
         <image name="john.png" width="489" height="450"/>
-        <image name="list25" width="100" height="100"/>
-        <image name="login_guest_btn" width="1047" height="168"/>
-        <image name="login_member_btn" width="1047" height="168"/>
+        <image name="list25" width="33" height="33"/>
+        <image name="login_guest_btn" width="349" height="56"/>
+        <image name="login_member_btn" width="349" height="56"/>
         <image name="logoSq.png" width="1130" height="1130"/>
-        <image name="pdf-button88" width="264" height="264"/>
-        <image name="placeholder" width="1500" height="1500"/>
-        <image name="radio-unselected" width="204" height="210"/>
-        <image name="search50" width="150" height="150"/>
-        <image name="select" width="228" height="75"/>
-        <image name="user_icon100" width="351" height="351"/>
+        <image name="pdf-button88" width="88" height="88"/>
+        <image name="placeholder" width="500" height="500"/>
+        <image name="radio-unselected" width="68" height="70"/>
+        <image name="search50" width="50" height="50"/>
+        <image name="select" width="76" height="25"/>
+        <image name="user_icon100" width="117" height="117"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1be-72-xFq"/>
-        <segue reference="B99-wp-PS8"/>
+        <segue reference="guD-cV-40h"/>
         <segue reference="hfy-JD-e0p"/>
     </inferredMetricsTieBreakers>
 </document>

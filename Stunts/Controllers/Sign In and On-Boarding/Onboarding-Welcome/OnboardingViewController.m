@@ -218,18 +218,18 @@ profileImage = PFFile imageFile;
     hud.label.text = @"Saving";
  
             //Member
-            user[@"AccountType"] = @"Member";
-            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    // The object has been saved.
-                    NSLog(@"User Info Saved");
-                } else {
-                    // There was a problem, check error.description
-                    [CrashlyticsKit recordError:error];
-                    NSLog(@"Error Saving User Info");
-                    [self SignupErrorWith:error];
-                }
-            }];
+//            user[@"AccountType"] = @"Member";
+//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    // The object has been saved.
+//                    NSLog(@"User Info Saved");
+//                } else {
+//                    // There was a problem, check error.description
+//                    [CrashlyticsKit recordError:error];
+//                    NSLog(@"Error Saving User Info");
+//                    [self SignupErrorWith:error];
+//                }
+//            }];
             //Member
             PFQuery *query = [PFQuery queryWithClassName:@"Members"];
             [query whereKey:@"uid" equalTo:[PFUser currentUser]];
@@ -254,8 +254,8 @@ profileImage = PFFile imageFile;
                              [hud hideAnimated:YES];
                              selectedMember = member;
                              PFUser *user =  [PFUser currentUser];
-                             user[@"Member"] = member;
-                             
+                             user[@"Member"] = selectedMember;
+                             user[@"AccountType"] = @"Member";
                              [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                  if (succeeded) {
                                      // The object has been saved.

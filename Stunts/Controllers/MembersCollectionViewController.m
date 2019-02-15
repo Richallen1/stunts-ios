@@ -16,6 +16,7 @@
 #import "Members.h"
 #import "Profile.h"
 #import "List.h"
+#import "MembersPageViewController.h"
 
 @interface MembersCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 {
@@ -422,7 +423,9 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     if ([segue.identifier isEqualToString:@"profile-selected-segue"])
     {
-        ProfileTableViewController *vc = segue.destinationViewController;
+        
+        MembersPageViewController* vc = segue.destinationViewController;
+        vc.members = members;
         vc.selectedMember = selectedMember;
     }
     if ([segue.identifier isEqualToString:@"show-filter-options"])
