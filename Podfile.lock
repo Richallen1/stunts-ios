@@ -14,6 +14,7 @@ PODS:
   - Realm (3.10.0):
     - Realm/Headers (= 3.10.0)
   - Realm/Headers (3.10.0)
+  - TOCropViewController (2.4.0)
   - TTRangeSlider (1.0.6)
 
 DEPENDENCIES:
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Parse
   - Reachability
   - Realm
+  - TOCropViewController
   - TTRangeSlider
 
 SPEC REPOS:
@@ -38,6 +40,7 @@ SPEC REPOS:
     - Parse
     - Reachability
     - Realm
+    - TOCropViewController
     - TTRangeSlider
 
 SPEC CHECKSUMS:
@@ -50,8 +53,9 @@ SPEC CHECKSUMS:
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  TOCropViewController: 368d8df3ea43b62c3dc5a61f11b9048274d240bd
   TTRangeSlider: 78188bea83f6471a06f75adbc88da5e990baeafe
 
-PODFILE CHECKSUM: 0c3933894bd56ff3a262650299c7dbcc1331f4bb
+PODFILE CHECKSUM: 4fdb790c424527c05dcb17748c8c4a83b2fbdcd1
 
 COCOAPODS: 1.5.3

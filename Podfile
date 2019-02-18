@@ -14,4 +14,6 @@ target 'Stunts' do
   pod 'Reachability'
   pod 'Fabric'
   pod 'Crashlytics', '~>  3.10'
+  pod 'TOCropViewController'
+
 end

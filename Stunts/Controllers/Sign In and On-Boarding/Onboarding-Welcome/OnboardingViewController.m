@@ -10,12 +10,13 @@
 #import "Member.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
-#import "GKImagePicker.h"
+//#import "GKImagePicker.h"
+#import <TOCropViewController/TOCropViewController.h>
 #import "OnboardingGalleryViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import "AppImports.h"
 
-@interface OnboardingViewController () <UIImagePickerControllerDelegate, UITextFieldDelegate, GKImagePickerDelegate>
+@interface OnboardingViewController () <UIImagePickerControllerDelegate, UITextFieldDelegate, TOCropViewControllerDelegate>
 {
     __weak IBOutlet UITextField *nameField;
     __weak IBOutlet UITextField *phoneField;
@@ -42,7 +43,13 @@
     MBProgressHUD *hud;
     PFObject *selectedMember;
 }
-@property (nonatomic, strong) GKImagePicker *imagePicker;
+//@property (nonatomic, strong) GKImagePicker *imagePicker;
+@property (nonatomic, strong) UIImage *image;           // The image we'll be cropping
+@property (nonatomic, strong) UIImageView *imageView;   // The image view to present the cropped image
+
+@property (nonatomic, assign) TOCropViewCroppingStyle croppingStyle; //The cropping style
+@property (nonatomic, assign) CGRect croppedFrame;
+@property (nonatomic, assign) NSInteger angle;
 @end
 
 @implementation OnboardingViewController
@@ -115,28 +122,54 @@
  
  @param sender (id)
  */
+//- (IBAction)addProfileImage:(id)sender
+//{
+//    //[self ShowImagePopoverDialog];
+//    self.imagePicker = [[GKImagePicker alloc] init];
+//    self.imagePicker.cropSize = CGSizeMake(280, 280);
+//    self.imagePicker.delegate = self;
+//
+////    self.imagePicker.customDoneButtonTitle = @"Finished";
+////    self.imagePicker.customCancelButtonTitle = @"Cancel";
+//    [self presentModalViewController:self.imagePicker.imagePickerController animated:YES];
+//}
+
 - (IBAction)addProfileImage:(id)sender
 {
-    //[self ShowImagePopoverDialog];
-    self.imagePicker = [[GKImagePicker alloc] init];
-    self.imagePicker.cropSize = CGSizeMake(280, 280);
-    self.imagePicker.delegate = self;
-
-//    self.imagePicker.customDoneButtonTitle = @"Finished";
-//    self.imagePicker.customCancelButtonTitle = @"Cancel";
-    [self presentModalViewController:self.imagePicker.imagePickerController animated:YES];
+    UIImagePickerController *standardPicker = [[UIImagePickerController alloc] init];
+    standardPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    standardPicker.allowsEditing = NO;
+    standardPicker.delegate = self;
+    [self presentViewController:standardPicker animated:YES completion:nil];
+    
+    
+}
+#pragma mark - Image Picker Delegate -
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
+    cropViewController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetSquare;
+    cropViewController.aspectRatioLockEnabled = YES;
+    cropViewController.resetAspectRatioEnabled = NO;
+    cropViewController.delegate = self;
+    [self presentViewController:cropViewController animated:YES completion:nil];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self presentViewController:cropViewController animated:YES completion:nil];
+    }];
 }
 
-# pragma mark GKImagePicker Delegate Methods
-- (void)imagePicker:(GKImagePicker *)imagePicker pickedImage:(UIImage *)image
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
 {
     profileImageView.image = image;
-    profileImage = image;
-    [self hideImagePicker];
-}
-- (void)hideImagePicker
-{
-    [self.imagePicker.imagePickerController dismissViewControllerAnimated:YES completion:nil];
+    [cropViewController dismissAnimatedFromParentViewController:self toView:profileImageView toFrame:cropRect setup:nil completion:^(){}];
 }
 /*!
  @brief Called when user selects male as an option on custom radio button
