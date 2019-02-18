@@ -1668,24 +1668,29 @@
     
     switch (status) {
         case 0:
-            //Full Member
-            memberBadgeView.backgroundColor = UIColorFromRGB(0xDD3131);
+            memberBadgeView.backgroundColor = UIColorFromRGB(0xff66cc);
             memberLabel.text = @"Probationary";
             break;
         case 1:
-            //Intermediate
-            memberBadgeView.backgroundColor = UIColorFromRGB(0xEF931F);
-            memberLabel.text = @"Intermediate";
+            memberBadgeView.backgroundColor = UIColorFromRGB(0xff6633);
+            memberLabel.text = @"Stunt Performer";
             break;
         case 2:
-            //Probationary
-            memberBadgeView.backgroundColor = UIColorFromRGB(0x66CB63);
+            memberBadgeView.backgroundColor = UIColorFromRGB(0xdfb610);
+            memberLabel.text = @"Senior Stunt Performer";
+            break;
+        case 3:
+            memberBadgeView.backgroundColor = UIColorFromRGB(0x33cc99);
+            memberLabel.text = @"Key Stunt Performer";
+            break;
+        case 4:
+            memberBadgeView.backgroundColor = UIColorFromRGB(0x92d050);
             memberLabel.text = @"Full Member";
             break;
             
         default:
             break;
-    }
+    }    
     return memberBadgeView;
 }
 

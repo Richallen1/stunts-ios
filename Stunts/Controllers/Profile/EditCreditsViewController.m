@@ -46,7 +46,7 @@
     creditsToDelete = [[NSMutableArray alloc]init];
     
     
-    [self fetchCreditsForUser:[PFUser currentUser]];
+    [self fetchCreditsForMember:(PFObject *)[PFUser currentUser][@"Member"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,13 +54,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)fetchCreditsForUser:(PFUser *)user
+-(void)fetchCreditsForMember:(PFObject *)member
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.label.text = @"Fetching Credits..";
     
     PFQuery *query = [PFQuery queryWithClassName:@"Credits"];
-    [query whereKey:@"User" equalTo:user];
+    [query whereKey:@"Member" equalTo:[PFUser currentUser][@"Member"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.

@@ -32,16 +32,24 @@
 -(void)setUserLevel:(AccountType)type
 {
     switch (type) {
-        case Probationary:
-            memberLevelView.backgroundColor = UIColorFromRGB(0xDD3131);
+        case 0:
+            memberLevelView.backgroundColor = UIColorFromRGB(0xff66cc);
             memberLevelLabel.text = @"Probationary";
             break;
-        case Intermediate:
-            memberLevelView.backgroundColor = UIColorFromRGB(0xEF931F);
-            memberLevelLabel.text = @"Intermediate";
+        case 1:
+            memberLevelView.backgroundColor = UIColorFromRGB(0xff6633);
+            memberLevelLabel.text = @"Stunt Performer";
             break;
-        case FullMember:
-            memberLevelView.backgroundColor = UIColorFromRGB(0x66CB63);
+        case 2:
+            memberLevelView.backgroundColor = UIColorFromRGB(0xdfb610);
+            memberLevelLabel.text = @"Senior Stunt Performer";
+            break;
+        case 3:
+            memberLevelView.backgroundColor = UIColorFromRGB(0x33cc99);
+            memberLevelLabel.text = @"Key Stunt Performer";
+            break;
+        case 4:
+            memberLevelView.backgroundColor = UIColorFromRGB(0x92d050);
             memberLevelLabel.text = @"Full Member";
             break;
             

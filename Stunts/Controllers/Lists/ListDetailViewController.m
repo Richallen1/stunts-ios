@@ -62,7 +62,10 @@ static NSString * const reuseIdentifier = @"Cell";
         memberList = [memberList stringByAppendingString:[NSString stringWithFormat:@"objectId == '%@'",memberId]];
     }
     NSLog(@"Query:%@",memberList);
-    RLMResults<Members * > * results = [Members objectsWhere:memberList];
+    RLMResults<Members * > * results;
+    if(memberList.length > 0){
+        results = [Members objectsWhere:memberList];
+    }
     NSLog(@"After:%lu",results.count);
     members = [[NSMutableArray alloc] init];
     if(results != NULL){
@@ -159,7 +162,7 @@ static NSString * const reuseIdentifier = @"Cell";
         return;
         
     }
-    [selectedMembers addObject:selectedMember];
+    [selectedMembers addObject:[members objectAtIndex:sender.tag]];
     NSLog(@"%@", selectedMember);
     [sender setBackgroundImage:[UIImage imageNamed:@"Checked-checkbox25"] forState:UIControlStateNormal];
     return;
@@ -275,11 +278,21 @@ static NSString * const reuseIdentifier = @"Cell";
     for (Members *member in selectedMembers)
     {
         [data addObject:member.objectId];
-        [members removeObject:data];
     }
     
+    //Remove members from colleciton view
+    [members removeObjectsInArray:selectedMembers];
+    
     [[RLMRealm defaultRealm] transactionWithBlock:^{
-        [tmp.members removeAllObjects];
+        [list.members removeAllObjects];
+        for(Members * tmp in members){
+            [list.members addObject:tmp.objectId];
+        }
+    }];
+    
+    [memberCollectionView reloadData];
+    
+    [[RLMRealm defaultRealm] transactionWithBlock:^{
         [tmp.members addObjects:data];
         
         [UIView animateWithDuration:0.4f animations:^{
@@ -710,18 +723,23 @@ static NSString * const reuseIdentifier = @"Cell";
     
     switch (status) {
         case 0:
-            //Full Member
-            memberBadgeView.backgroundColor = UIColorFromRGB(0xDD3131);
+            memberBadgeView.backgroundColor = UIColorFromRGB(0xff66cc);
             memberLabel.text = @"Probationary";
             break;
         case 1:
-            //Intermediate
-            memberBadgeView.backgroundColor = UIColorFromRGB(0xEF931F);
-            memberLabel.text = @"Intermediate";
+            memberBadgeView.backgroundColor = UIColorFromRGB(0xff6633);
+            memberLabel.text = @"Stunt Performer";
             break;
         case 2:
-            //Probationary
-            memberBadgeView.backgroundColor = UIColorFromRGB(0x66CB63);
+            memberBadgeView.backgroundColor = UIColorFromRGB(0xdfb610);
+            memberLabel.text = @"Senior Stunt Performer";
+            break;
+        case 3:
+            memberBadgeView.backgroundColor = UIColorFromRGB(0x33cc99);
+            memberLabel.text = @"Key Stunt Performer";
+            break;
+        case 4:
+            memberBadgeView.backgroundColor = UIColorFromRGB(0x92d050);
             memberLabel.text = @"Full Member";
             break;
             

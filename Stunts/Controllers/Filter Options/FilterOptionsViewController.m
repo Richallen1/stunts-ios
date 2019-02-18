@@ -14,7 +14,9 @@
 @interface FilterOptionsViewController ()
 {
     __weak IBOutlet UIButton *probationaryMemberButtton;
-    __weak IBOutlet UIButton *intermediateButton;
+    __weak IBOutlet UIButton *stuntPerformerButton;
+    __weak IBOutlet UIButton *seniorStuntPerformerButton;
+    __weak IBOutlet UIButton *keyStuntPerformerButton;
     __weak IBOutlet UIButton *fullMemberButton;
 }
 
@@ -34,8 +36,16 @@
     [probationaryMemberButtton setImage:[UIImage imageNamed:@"filter-user-selected"] forState:UIControlStateSelected];
     
     //Intermediate Button Setup
-    [intermediateButton setImage:[UIImage imageNamed:@"filter-user-unselected"] forState:UIControlStateNormal];
-    [intermediateButton setImage:[UIImage imageNamed:@"filter-user-selected"] forState:UIControlStateSelected];
+    [stuntPerformerButton setImage:[UIImage imageNamed:@"filter-user-unselected"] forState:UIControlStateNormal];
+    [stuntPerformerButton setImage:[UIImage imageNamed:@"filter-user-selected"] forState:UIControlStateSelected];
+    
+    //Intermediate Button Setup
+    [seniorStuntPerformerButton setImage:[UIImage imageNamed:@"filter-user-unselected"] forState:UIControlStateNormal];
+    [seniorStuntPerformerButton setImage:[UIImage imageNamed:@"filter-user-selected"] forState:UIControlStateSelected];
+    
+    //Intermediate Button Setup
+    [keyStuntPerformerButton setImage:[UIImage imageNamed:@"filter-user-unselected"] forState:UIControlStateNormal];
+    [keyStuntPerformerButton setImage:[UIImage imageNamed:@"filter-user-selected"] forState:UIControlStateSelected];
     
     
     //Full Member Button Setup
@@ -43,11 +53,15 @@
     [fullMemberButton setImage:[UIImage imageNamed:@"filter-user-selected"] forState:UIControlStateSelected];
     
     probationaryMemberButtton.selected = YES;
-    intermediateButton.selected = YES;
+    stuntPerformerButton.selected = YES;
+    seniorStuntPerformerButton.selected = YES;
+    keyStuntPerformerButton.selected = YES;
     fullMemberButton.selected = YES;
     
     [filterChoices setObject:@"YES" forKey:@"ProbationaryMember"];
-    [filterChoices setObject:@"YES" forKey:@"IntermediateMember"];
+    [filterChoices setObject:@"YES" forKey:@"StuntPerformer"];
+    [filterChoices setObject:@"YES" forKey:@"SeniorStuntPerformer"];
+    [filterChoices setObject:@"YES" forKey:@"KeyStuntPerformer"];
     [filterChoices setObject:@"YES" forKey:@"FullMember"];
 }
 
@@ -69,17 +83,45 @@
     }
 }
 
-- (IBAction)intermediateClicked:(id)sender
+- (IBAction)stuntPerformerClicked:(id)sender
 {
-    if (intermediateButton.isSelected == YES)
+    if (stuntPerformerButton.isSelected == YES)
     {
-        intermediateButton.selected = NO;
-        [filterChoices setObject:@"NO" forKey:@"IntermediateMember"];
+        stuntPerformerButton.selected = NO;
+        [filterChoices setObject:@"NO" forKey:@"StuntPerformer"];
     }
     else
     {
-        intermediateButton.selected = YES;
-        [filterChoices setObject:@"YES" forKey:@"IntermediateMember"];
+        stuntPerformerButton.selected = YES;
+        [filterChoices setObject:@"YES" forKey:@"StuntPerformer"];
+    }
+}
+
+- (IBAction)seniorStuntPerformerClicked:(id)sender
+{
+    if (seniorStuntPerformerButton.isSelected == YES)
+    {
+        seniorStuntPerformerButton.selected = NO;
+        [filterChoices setObject:@"NO" forKey:@"SeniorStuntPerformer"];
+    }
+    else
+    {
+        seniorStuntPerformerButton.selected = YES;
+        [filterChoices setObject:@"YES" forKey:@"SeniorStuntPerformer"];
+    }
+}
+
+- (IBAction)keyStuntPerformerClicked:(id)sender
+{
+    if (keyStuntPerformerButton.isSelected == YES)
+    {
+        keyStuntPerformerButton.selected = NO;
+        [filterChoices setObject:@"NO" forKey:@"KeyStuntPerformer"];
+    }
+    else
+    {
+        keyStuntPerformerButton.selected = YES;
+        [filterChoices setObject:@"YES" forKey:@"KeyStuntPerformer"];
     }
 }
 - (IBAction)fullMemberClicked:(id)sender

@@ -915,14 +915,32 @@ static NSString * const reuseIdentifier = @"Cell";
                 predString = [predString stringByAppendingString:@"MemberType = '0'"];
             }
         }
-        if ([dictionary objectForKey:@"IntermediateMember"])
+        if ([dictionary objectForKey:@"StuntPerformer"])
         {
-            if ([[dictionary objectForKey:@"IntermediateMember"] isEqualToString: @"YES"]) {
+            if ([[dictionary objectForKey:@"StuntPerformer"] isEqualToString: @"YES"]) {
                 if(predString.length > 0){
                     predString = [predString stringByAppendingString:@" OR "];
                 }
                 predString = [predString stringByAppendingString:@"MemberType = '1'"];
                 
+            }
+        }
+        if ([dictionary objectForKey:@"SeniorStuntPerformer"])
+        {
+            if ([[dictionary objectForKey:@"SeniorStuntPerformer"] isEqualToString: @"YES"]) {
+                if(predString.length > 0){
+                    predString = [predString stringByAppendingString:@" OR "];
+                }
+                predString = [predString stringByAppendingString:@"MemberType = '2'"];
+            }
+        }
+        if ([dictionary objectForKey:@"KeyStuntPerformer"])
+        {
+            if ([[dictionary objectForKey:@"KeyStuntPerformer"] isEqualToString: @"YES"]) {
+                if(predString.length > 0){
+                    predString = [predString stringByAppendingString:@" OR "];
+                }
+                predString = [predString stringByAppendingString:@"MemberType = '3'"];
             }
         }
         if ([dictionary objectForKey:@"FullMember"])
@@ -931,7 +949,7 @@ static NSString * const reuseIdentifier = @"Cell";
                 if(predString.length > 0){
                     predString = [predString stringByAppendingString:@" OR "];
                 }
-                predString = [predString stringByAppendingString:@"MemberType = '2'"];
+                predString = [predString stringByAppendingString:@"MemberType = '4'"];
             }
         }
         

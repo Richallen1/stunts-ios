@@ -111,7 +111,7 @@
                     user.email = ((NSString *)[tmp objectForKey:@"email"]);
                     user.createdAt = [formatter dateFromString:[tmp objectForKey:@"createdAt"]];
                     user.updatedAt = [formatter dateFromString:[tmp objectForKey:@"updatedAt"]];
-                    user.memberType = ((NSNumber<RLMInt> *)[tmp objectForKey:@"memberType"]);
+                    user.memberType = ((NSNumber<RLMInt> *)[tmp objectForKey:@"NewGrade"]);
                     user.Onboarding_About = ((NSNumber<RLMInt> *)[tmp objectForKey:@"Onboarding_About"]);
                     user.Onboarding_Basic = ((NSNumber<RLMInt> *)[tmp objectForKey:@"Onboarding_Basic"]);
                     user.Onboarding_Credit = ((NSNumber<RLMInt> *)[tmp objectForKey:@"Onboarding_Credit"]);
@@ -199,7 +199,7 @@
                     members.Name = ((NSString * )[tmp objectForKey:@"Name"]);
                     members.uid = ((NSString * )[tmp objectForKey:@"uid"]);
                     members.profileImage = ((NSString * )[tmp objectForKey:@"profileImage"]);
-                    members.MemberType = ((NSString * )[tmp objectForKey:@"MemberType"]);
+                    members.MemberType = ([NSString stringWithFormat:@"%li", [[tmp objectForKey:@"NewGrade"] integerValue]]);
                     members.FirstName = ((NSString * )[tmp objectForKey:@"FirstName"]);
                     members.RejectedCredits = ((NSString * )[tmp objectForKey:@"RejectedCredits"]);
                     members.Email = ((NSString * )[tmp objectForKey:@"Email"]);

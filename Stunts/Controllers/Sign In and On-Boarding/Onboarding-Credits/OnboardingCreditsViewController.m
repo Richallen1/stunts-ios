@@ -47,25 +47,22 @@
     
     NSString *userName = [PFUser currentUser][@"Name"];
     NSArray *terms = [userName componentsSeparatedByString:@" "];
-    NSString *firstName = [terms objectAtIndex:0];
-    NSString *lastName = [terms objectAtIndex:1];
+
     
-    PFQuery *query = [PFQuery queryWithClassName:@"PreApprovedCredits"];
-    [query whereKey:@"FirstName" equalTo:firstName];
-    [query whereKey:@"LastName" equalTo:lastName];
+    PFQuery *query = [PFQuery queryWithClassName:@"Credits"];
+    [query whereKey:@"Member" equalTo:[PFUser currentUser][@"Member"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [hud hideAnimated:YES];
         [self ShowCreditInfo];
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            NSLog(@"Successfully retrieved %lu Credits.", (unsigned long)objects.count);
             // Do something with the found objects
             if (objects.count > 0)
             {
                 for (PFObject *obj in objects)
                 {
                     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-                    [dict setObject:[PFUser currentUser] forKey:@"User"];
                     [dict setObject:obj[@"Production"] forKey:@"Production"];
                     [dict setObject:obj[@"JobRole"] forKey:@"JobRole"];
                     [dict setObject:@"Approved" forKey:@"State"];
@@ -526,7 +523,7 @@
             credit[@"Production"] = [creditDict objectForKey:@"Production"];
             credit[@"JobRole"] = [creditDict objectForKey:@"JobRole"];;
             credit[@"State"] = [creditDict objectForKey:@"State"];
-            credit[@"User"] = [PFUser currentUser];
+            credit[@"Member"] = [PFUser currentUser][@"Member"];
             
             if ([creditDict objectForKey:@"Contract"])
             {

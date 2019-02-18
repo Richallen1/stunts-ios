@@ -116,14 +116,14 @@
     /*Combat Skills*/
     NSMutableDictionary *combat = [[NSMutableDictionary alloc]init];
     [combat setObject:@"Combat" forKey:@"title"];
-    NSArray *combatSkills = [[NSArray alloc] initWithObjects:@"Fight choreography", @"Sword  & Shield Work", @"Fencing", @"Jousting", @"Armoury", nil];
+    NSArray *combatSkills = [[NSArray alloc] initWithObjects:@"Aikido Boxing",@"ABA Boxing",@"Champion Boxing",@"Coach Boxing",@"Professional Fencing Fight Choreography Firearms Firearms",@"Basic Handling Firearms",@"Special Ops Firearms",@"Vintage Firearms Instructor Hand to Hand Combat Jousting Jiu Jitsu Ji",@"itsu",@"Brazilian  Judo Karate Kendo Kickboxing Knife Work Krav Maga Kung Fu Martial Art",@"Champion Martial Arts",@"Coach Martial Arts",@"Tricking Martial Arts",@"Various Mixed Martial Arts (MMA)",@"Amateur Mixed Martial Arts (MMA)Pro ",@"Muay Thai", @"Nunchaku",@"Sanda",@"Staff",@"Sword & Shield Work",@"Tae Kwon Do",@"WeaponryMedieval",@"Weaponry Oriental",@"Wing Chun",@"Wrestling",@"Wushu", nil];
     [combat setObject:combatSkills forKey:@"skills"];
     [returnValue addObject:combat];
     
     /*Falls and Heights Skills*/
     NSMutableDictionary *falls = [[NSMutableDictionary alloc]init];
     [falls setObject:@"Falls" forKey:@"title"];
-    NSArray *fallsSkills = [[NSArray alloc] initWithObjects:@"Trampoline", @"High Dive", @"Air Ram", @"Air Bag Falls", @"Car Knockdowns", @"Falls >50ft", @"High Falls <50ft", @"High Dive 10m", @"Springboard", @"Work at Heights", @"Stair Falls", nil];
+    NSArray *fallsSkills = [[NSArray alloc] initWithObjects:@"Air Bags", @"Air Ram", @"Bungee", @"Car Knockdowns", @"Falls - Air Bags", @"Falls - 25m +", @"Falls - Saddle", @"Falls - Stairs", @"Falls - Up to 10m", @"Falls - Up to 20m", @"Falls - Up to 5m", @"Falls - Water", @"High Dive", @"High Fall Specialist", @"Springboard", @"Trampette", @"Trampoline", nil];
     [falls setObject:fallsSkills forKey:@"skills"];
     [returnValue addObject:falls];
     
@@ -131,23 +131,23 @@
     
     NSMutableDictionary *riding = [[NSMutableDictionary alloc]init];
     [riding setObject:@"Horse Riding" forKey:@"title"];
-    NSArray *ridingSkills = [[NSArray alloc] initWithObjects:@"Horse Riding", @"Horse Master", @"Coach/Chariot Driver", @"Jousting", @"Dressage", @"Confident Around Horses", nil];
+    NSArray *ridingSkills = [[NSArray alloc] initWithObjects:@"Car Knockdowns", @"Driving - Blind", @"Driving - Drifting", @"Driving - Off Road", @"Driving - Precision", @"Driving - Rally", @"Driving - Tank", @"Farm Machinery Operator", @"Heavy Plant Operator", @"HGV", @"Horse - Dressage", @"Horse - Eventing", @"Horse - Trick Riding", @"Horse Carriage/Chariot Driver", @"Horse Master", @"Horse Riding - Advanced", @"Horse Riding - Basic", @"Jet Ski", @"Jousting", @"Kart Racing", @"Motocross", @"Motorboat", @"Motorcycle", @"Motorcycle - Lay Down", @"Motorcycle - Tricks", @"Pipe Ramps", @"Powerboat", @"Quad Bike", @"Rodeo", @"Sailing", @"Snowmobile", @"Vehicle Crashes", @"Water Ski", nil];
     [riding setObject:ridingSkills forKey:@"skills"];
     [returnValue addObject:riding];
     
-    /*Driving */
+//    /*Driving */
+//
+//    NSMutableDictionary *driving = [[NSMutableDictionary alloc]init];
+//    [driving setObject:@"Driving" forKey:@"title"];
+//    NSArray *drivingSkills = [[NSArray alloc] initWithObjects:@"Motorcycle - Tricks", @"Rally", @"Precision Driving", @"Pipe Ramps", @"Drifting", @"Kart Racing", @"HGV", @"Heavy Plant Operator", @"Farm Machinery Operator", nil];
+//    [driving setObject:drivingSkills forKey:@"skills"];
+//    [returnValue addObject:driving];
     
-    NSMutableDictionary *driving = [[NSMutableDictionary alloc]init];
-    [driving setObject:@"Driving" forKey:@"title"];
-    NSArray *drivingSkills = [[NSArray alloc] initWithObjects:@"Motorcycle - Tricks", @"Rally", @"Precision Driving", @"Pipe Ramps", @"Drifting", @"Kart Racing", @"HGV", @"Heavy Plant Operator", @"Farm Machinery Operator", nil];
-    [driving setObject:drivingSkills forKey:@"skills"];
-    [returnValue addObject:driving];
-    
-    /*Driving */
+    /*Agillity */
     
     NSMutableDictionary *agility = [[NSMutableDictionary alloc]init];
     [agility setObject:@"Agility & Strength" forKey:@"title"];
-    NSArray *agilitySkills = [[NSArray alloc] initWithObjects: @"Gymnastics", @"Rock Climbing", @"Dance", @"Breakdance", @"Bungee", @"Parkour", @"Tumbling", @"BMX", nil];
+    NSArray *agilitySkills = [[NSArray alloc] initWithObjects: @"Acrobatics", @"Acrodance", @"Ballet", @"Breakdance", @"Capoeira", @"Dance", @"Gymnastics", @"Ice Climbing", @"Parkour", @"Rock Climbing", @"Tumbling", nil];
     [agility setObject:agilitySkills forKey:@"skills"];
     [returnValue addObject:agility];
     
@@ -155,7 +155,7 @@
     
     NSMutableDictionary *water = [[NSMutableDictionary alloc]init];
     [water setObject:@"Water" forKey:@"title"];
-    NSArray *waterSkills = [[NSArray alloc] initWithObjects: @"Swimming", @"Sub Aqua", @"Advanced Diver", @"Cliff diving", @"Motorboat", @"PADI Divemaster", @"Powerboat", @"Sailing", @"Surf", @"Wake Boarding", @"Water Ski", @"Wind-Surf", nil];
+    NSArray *waterSkills = [[NSArray alloc] initWithObjects: @"Breath Holds", @"Canoe", @"Diving - 10m High Dive", @"Diving - Advanced", @"Diving - Cliff", @"Diving - Free", @"Diving - High", @"Diving - Sub Aqua", @"Jet Ski", @"Kayaking", @"Motorboat", @"PADI Divemaster", @"Powerboat", @"Sailing", @"Surfing", @"Swimming", @"Wake Boarding", @"Water Skiing", @"Wind-Surfing", nil];
 
     [water setObject:waterSkills forKey:@"skills"];
     [returnValue addObject:water];
@@ -164,7 +164,7 @@
     
     NSMutableDictionary *air = [[NSMutableDictionary alloc]init];
     [air setObject:@"Air" forKey:@"title"];
-    NSArray *airSkills = [[NSArray alloc] initWithObjects: @"Air Ram", @"Bunji Jump", @"Hot Air Balloon", @"Microlight", @"Parachute", @"Paraglide", @"Synchronised Parachute", @"Synchronised Wing Suit", @"Wing Suit", nil];
+    NSArray *airSkills = [[NSArray alloc] initWithObjects: @"Air Ram", @"Base Jumping", @"Bungee Jumping", @"Parachute", @"Paraglide", @"Pilot - Autogyro", @"Pilot - Fixed Wing", @"Pilot - Glider", @"Pilot - Helicopter", @"Pilot - Hot Air Balloon", @"Pilot - Microlight", @"Skydiving", @"Skydiving - Synchronised", @"Wing Suit", @"Wing Suit - Synchronised", nil];
     [air setObject:airSkills forKey:@"skills"];
     [returnValue addObject:air];
 
@@ -172,29 +172,23 @@
     
     NSMutableDictionary *fire = [[NSMutableDictionary alloc]init];
     [fire setObject:@"Fire" forKey:@"title"];
-    NSArray *fireSkills = [[NSArray alloc] initWithObjects:@"Fire Safety", nil];
+    NSArray *fireSkills = [[NSArray alloc] initWithObjects:@"Burns - Basic", @"Burns - Experienced", @"Burns - Expert", @"Burns - Full", @"Burns - Partial", @"Fire Fighter", @"Fire Safety Trained", nil];
     [fire setObject:fireSkills forKey:@"skills"];
     [returnValue addObject:fire];
     
-    NSMutableDictionary *burns = [[NSMutableDictionary alloc]init];
-    [burns setObject:@"Burns" forKey:@"title"];
-    NSArray *burnSkills = [[NSArray alloc] initWithObjects: @"Burns - Basic", @"Burns - Experienced", @"Burns - Expert", @"Partial  Burns", @"Full Burns", nil];
-    [burns setObject:burnSkills forKey:@"skills"];
-    [returnValue addObject:burns];
-    
-    /* Other Stunts */
+    /* Other Roles Experience */
     
     NSMutableDictionary *other = [[NSMutableDictionary alloc]init];
     [other setObject:@"Other -Stunt Specific" forKey:@"title"];
-    NSArray *otherSkills = [[NSArray alloc] initWithObjects: @"2nd Unit Director", @"Acting", @"Bungee", @"Camera", @"First Aid", @"Jerks", @"Mo-Cap Performer", @"Rigging", @"Rigging Supervisor", @"Wire Work", nil];
+    NSArray *otherSkills = [[NSArray alloc] initWithObjects: @"2nd Unit Director", @"Camera Operator", @"Camera Operator - Underwater", @"Camera Tracking", @"Drama Qualification", @"First Aid", @"Health & Safety Qualification", @"Live Performance", @"Rigging", @"Rigging Supervisor", @"Script Breakdown", @"Theatre", nil];
     [other setObject:otherSkills forKey:@"skills"];
     [returnValue addObject:other];
     
-    /* Other Sports */
+    /* Misc Skills/Sports */
     
     NSMutableDictionary *otherSports = [[NSMutableDictionary alloc]init];
     [otherSports setObject:@"Other - Sports/Specialisms" forKey:@"title"];
-    NSArray *otherSportsSkills = [[NSArray alloc] initWithObjects: @"Archery", @"Abseiling", @"Circus Skills", @"Decathlon", @"Endurance Cycle", @"Iron Man", @"Parkour", @"Rock Climbing", @"Rugby", @"Skiing", @"Snowboarding", @"Triathlon", nil];
+    NSArray *otherSportsSkills = [[NSArray alloc] initWithObjects: @"2nd Language", @"Abseiling", @"Acrobatics", @"Acrodance", @"Acting", @"Animatronics", @"Archery", @"Ballet", @"BMX", @"Bullet Reactions", @"Capoeira", @"Circus Skills", @"Creature Work", @"Decathlon", @"Endurance Cycle", @"Fan Descending", @"Fitness Instructor", @"Ice Skating", @"Iron Man", @"Jerkbacks", @"Military - Commando", @"Military - Service Trained", @"Military - Skills for Screen", @"Military - Special Ops", @"Motion Capture", @"Parkour/Free Running", @"Personal Trainer", @"Public Speaking", @"Ratchets", @"Rock Climbing", @"Roller-Blading", @"Roller-Skating", @"Rugby", @"Russian Swing", @"Skateboarding", @"Skiing (snow)", @"Snowboarding", @"Stilts", @"Triathlon", @"Wire Work", @"Work at Heights", nil];
     [otherSports setObject:otherSportsSkills forKey:@"skills"];
     [returnValue addObject:otherSports];
 
