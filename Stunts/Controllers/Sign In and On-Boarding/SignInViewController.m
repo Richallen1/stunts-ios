@@ -70,6 +70,7 @@
         [defaults synchronize];
     }
 
+   
 }
 -(void)AddMemberToUser:(PFUser *)user
 {

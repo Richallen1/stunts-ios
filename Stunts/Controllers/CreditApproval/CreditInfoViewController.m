@@ -166,7 +166,7 @@
     }];
 
 
-    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 - (IBAction)declineCredit:(id)sender
 {

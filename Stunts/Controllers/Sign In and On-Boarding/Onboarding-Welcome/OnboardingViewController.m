@@ -10,7 +10,6 @@
 #import "Member.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
-//#import "GKImagePicker.h"
 #import <TOCropViewController/TOCropViewController.h>
 #import "OnboardingGalleryViewController.h"
 #import <Crashlytics/Crashlytics.h>
@@ -160,7 +159,7 @@
         [self presentViewController:cropViewController animated:YES completion:nil];
     }];
 }
-
+#pragma mark - TOCrop Delegate -
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -169,6 +168,7 @@
 - (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
 {
     profileImageView.image = image;
+    profileImage = image;
     [cropViewController dismissAnimatedFromParentViewController:self toView:profileImageView toFrame:cropRect setup:nil completion:^(){}];
 }
 /*!
@@ -224,6 +224,8 @@ profileImage = PFFile imageFile;
     {
         return;
     }
+    
+
     //Create profile for Parse
     PFUser *user = [PFUser currentUser];
     user[@"Onboarding_Basic"] = [NSNumber numberWithBool:YES];
@@ -274,9 +276,11 @@ profileImage = PFFile imageFile;
                      NSLog(@"Member Found");
                      //Member found
                      PFObject *member = objects[0];
+                     NSLog(@"%@",member);
                      member[@"phoneNumber"] = phoneField.text;
                      member[@"Name"] = nameField.text;
                      if(imageFile){
+                         NSLog(@"%@", imageFile);
                          member[@"profileImage"] = imageFile;
                      }
            

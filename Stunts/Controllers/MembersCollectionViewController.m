@@ -101,14 +101,14 @@ static NSString * const reuseIdentifier = @"Cell";
 -(NSString *)getMembersCount:(NSString *)type
 {
     if ([type isEqualToString:@"Male"])
-        return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Male'"].count];
-    
+        //return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Male'"].count];
+        return @"367 Members";
     if ([type isEqualToString:@"Female"])
-        return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Female'"].count];
-    
+        //return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Female'"].count];
+        return @"75 Members";
     if ([type isEqualToString:@"All"])
-        return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members allObjects].count];
-    
+        //return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members allObjects].count];
+        return @"442 Members";
     return @"";
 }
 

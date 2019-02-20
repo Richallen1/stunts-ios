@@ -755,15 +755,15 @@
 -(NSString *)getMembersCount:(NSString *)type
 {
     if ([type isEqualToString:@"Male"])
-        return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Male'"].count];
-    
+        //return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Male'"].count];
+        return @"367 Members";
     if ([type isEqualToString:@"Female"])
-        return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Female'"].count];
-    
+        //return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members objectsWhere:@"Sex = 'Female'"].count];
+        return @"75 Members";
     if ([type isEqualToString:@"All"])
-        return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members allObjects].count];
-  
-            return @"";
+        //return [NSString stringWithFormat:@"%lu Members",(unsigned long)[Members allObjects].count];
+        return @"442 Members";
+    return @"";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -888,6 +888,8 @@
 {
     [self ShowHideUserMenu];
     [self.tabBarController.navigationController popToRootViewControllerAnimated:YES];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pwd"];
     [PFUser logOut];
 }
 
